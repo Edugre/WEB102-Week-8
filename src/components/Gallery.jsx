@@ -15,6 +15,7 @@ const Gallery = () => {
                 const { data,error } = await supabase
                 .from("character")
                 .select('id, name, race, class')
+                .order('created_at', { ascending: false })
 
                 if (error) throw error
                 setCharacters(data)
@@ -34,6 +35,7 @@ const Gallery = () => {
                 {characters.map(character => (
                     <div className="character-card" key={character.id}>
                         <h3>Name: {character.name}</h3>
+                        <img src={`/${character.class}.webp`} alt={`${character.class} character`} />
                         <p>Race: {character.race}</p>
                         <p>Class: {character.class}</p>
                         <Link to={`/character/${character.id}`}><button>Details</button></Link>

@@ -69,19 +69,21 @@ const Edit = () => {
     }
 
     return (
-        <div>
+        <div className="edit-container">
             <h1>Edit Character</h1>
             <h2>Current data</h2>
-            <p>Name: {character?.name}</p>
-            <p>Race: {character?.race}</p>
-            <p>Class: {character?.class}</p>
+            <div className="current-data" style={{ marginBottom: "0px" }}>
+                <h3>Name: {character?.name}</h3>
+                <h3>Race: {character?.race}</h3>
+                <h3>Class: {character?.class}</h3>
+            </div>
             <form className="character-info" onSubmit={updateCharacter}>
                 <div className="info-input">
-                    <label for="text">Character name</label>
+                    <label htmlFor="name">Character name</label>
                     <input type="text" id="name" name="name" required defaultValue={character?.name} />
                 </div>
                 <div className="info-input">
-                <label for="race">Character Race</label>
+                    <label htmlFor="race">Character Race</label>
                     <select id="race" name="race" defaultValue={character?.race}>
                         <option>Human</option>    
                         <option>Elf</option>    
@@ -91,7 +93,7 @@ const Edit = () => {
                     </select> 
                 </div>
                 <div className="info-input">
-                <label for="class">Character Class</label>
+                    <label htmlFor="class">Character Class</label>
                     <select id="class" name="class" defaultValue={character?.class}>
                         <option>Warrior</option>    
                         <option>Mage</option>    
@@ -103,9 +105,9 @@ const Edit = () => {
                 </div>
                 <div className="buttons-container">
                     <button type="submit">Update Character</button>
+                    <button type="button" onClick={deleteCharacter}>Delete Character</button>
                 </div>
             </form>
-            <button onClick={deleteCharacter}>Delete Character</button>
         </div>
     )
 }

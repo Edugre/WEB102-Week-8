@@ -31,11 +31,12 @@ const Character = () => {
     }, [])
 
     return (
-        <div>
+        <div className="character-container">
             <h1>Character: {character?.name}</h1>
+            <img src={`/${character?.class}.webp`} alt={`${character?.class} character`} />
             <h2>Race: {character?.race}</h2>
             <h2>Class: {character?.class}</h2>
-            <Link to={`/character/${character?.id}/edit`}><button>Edit</button></Link>
+            <Link to={`/character/${character?.id}/edit`}><button>Edit Character</button></Link>
         </div>
     )
 }
